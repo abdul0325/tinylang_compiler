@@ -1,0 +1,8 @@
+int age = 25;
+bool isAdult = age >= 18;
+
+if (isAdult) {
+    print(1);
+} else {
+    print(0);
+}

@@ -1,0 +1,16 @@
+// Fibonacci sequence
+int n = 10;
+int a = 0;
+int b = 1;
+int i = 0;
+
+print(a);
+print(b);
+
+while (i < n) {
+    int temp = a + b;
+    a = b;
+    b = temp;
+    print(temp);
+    i = i + 1;
+}

@@ -1,0 +1,57 @@
+# TinyLang Compiler - Python Dependencies
+# Installation: pip install -r requirements.txt
+
+# ============================================================================
+# Core Dependencies
+# ============================================================================
+
+# Lark Parser - Parsing library for building the lexer and parser
+lark==1.1.9
+
+# ============================================================================
+# Optional Dependencies (for enhanced features)
+# ============================================================================
+
+# Rich - Beautiful terminal output and formatting
+# Used for: Pretty printing, colored output, progress bars
+rich==13.7.0
+
+# ============================================================================
+# Development Dependencies (optional, for contributors)
+# ============================================================================
+
+# pytest - Testing framework
+# Uncomment if you want to use pytest instead of unittest
+# pytest==7.4.3
+# pytest-cov==4.1.0
+
+# black - Code formatter
+# Uncomment for automatic code formatting
+# black==23.11.0
+
+# flake8 - Linting
+# Uncomment for code quality checks
+# flake8==6.1.0
+
+# mypy - Static type checking
+# Uncomment for type checking
+# mypy==1.7.1
+
+# ============================================================================
+# Notes
+# ============================================================================
+# 
+# Minimum Python version: 3.8+
+# Recommended Python version: 3.10+
+#
+# To install all dependencies:
+#   pip install -r requirements.txt
+#
+# To install with development dependencies:
+#   Uncomment the dev dependencies above and run:
+#   pip install -r requirements.txt
+#
+# To create a virtual environment:
+#   python -m venv venv
+#   source venv/bin/activate  # On Windows: venv\Scripts\activate
+#   pip install -r requirements.txt
