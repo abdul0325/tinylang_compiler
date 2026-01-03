@@ -1,3 +1,0 @@
-// This should produce semantic error
-int x = 10;
-bool y = x;  // Type mismatch

@@ -2,14 +2,14 @@
 import sys
 import os
 
-# Fix imports when running from different directories
-sys.path.insert(0, os.path.dirname(__file__))
+# Add src to path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
 from lexer_parser import TinyLangCompiler
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py <filename.tiny>")
+        print("Usage: python run.py <filename.tiny>")
         sys.exit(1)
     
     filename = sys.argv[1]
