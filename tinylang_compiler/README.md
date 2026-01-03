@@ -9,7 +9,7 @@
 
 **A Complete, Production-Quality Compiler Built from Scratch in Python**
 
-*From source code to execution — Experience every stage of compilation*
+*From source code to execution  Experience every stage of compilation*
 
 [Features](#-features) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Examples](#-examples)
 
