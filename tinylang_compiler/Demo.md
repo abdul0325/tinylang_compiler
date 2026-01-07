@@ -8,6 +8,6 @@ python src/semantic_codegen.py
 cd src
 python main.py ../tests/test_programs/fibonacci.tiny
 
-# 4. Run tests
+# 4. Run test
 cd ..
 python tests/test_runner.py
