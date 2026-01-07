@@ -1,14 +1,8 @@
-"""
-TinyLang Compiler Test Runner
-Comprehensive testing suite for the TinyLang compiler
-"""
-
 import sys
 import os
 import glob
 from io import StringIO
 
-# Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from lexer_parser import TinyLangCompiler
@@ -23,9 +17,7 @@ class TestResult:
         self.error = error
         self.expected = expected
 
-class TinyLangTester:
-    """Test runner for TinyLang programs"""
-    
+class TinyLangTester:    
     def __init__(self):
         self.parser = TinyLangCompiler()
         self.results = []
@@ -59,24 +51,24 @@ class TinyLangTester:
             
             # Check results
             if should_fail:
-                print(f"❌ FAILED: Expected semantic error but code executed")
+                print(f"FAILED: Expected semantic error but code executed")
                 self.results.append(TestResult(name, False, output, "Should have failed"))
                 return False
             
             if expected_output is not None:
                 if output == expected_output:
-                    print(f"✅ PASSED")
+                    print(f"PASSED")
                     print(f"Output: {output}")
                     self.results.append(TestResult(name, True, output))
                     return True
                 else:
-                    print(f"❌ FAILED")
+                    print(f"FAILED")
                     print(f"Expected: {expected_output}")
                     print(f"Got: {output}")
                     self.results.append(TestResult(name, False, output, "Wrong output", expected_output))
                     return False
             else:
-                print(f"✅ PASSED")
+                print(f"PASSED")
                 print(f"Output: {output}")
                 self.results.append(TestResult(name, True, output))
                 return True
@@ -84,12 +76,12 @@ class TinyLangTester:
         except Exception as e:
             sys.stdout = old_stdout
             if should_fail:
-                print(f"✅ PASSED (Expected failure)")
+                print(f"PASSED (Expected failure)")
                 print(f"Error: {e}")
                 self.results.append(TestResult(name, True, None, str(e)))
                 return True
             else:
-                print(f"❌ FAILED with exception")
+                print(f"FAILED with exception")
                 print(f"Error: {e}")
                 self.results.append(TestResult(name, False, None, str(e)))
                 return False
@@ -107,12 +99,9 @@ class TinyLangTester:
         passed = sum(1 for r in self.results if r.passed)
         failed = len(self.results) - passed
         
-        print(f"\n{'='*60}")
-        print("TEST SUMMARY")
-        print('='*60)
         print(f"Total: {len(self.results)} tests")
-        print(f"✅ Passed: {passed}")
-        print(f"❌ Failed: {failed}")
+        print(f"Passed: {passed}")
+        print(f"Failed: {failed}")
         
         if failed > 0:
             print("\nFailed tests:")
@@ -306,21 +295,12 @@ def main():
             passed = sum(1 for r in all_results if r.passed)
             failed = len(all_results) - passed
             
-            print(f"\n{'='*60}")
-            print("OVERALL SUMMARY")
-            print('='*60)
+            
             print(f"Total: {len(all_results)} tests")
-            print(f"✅ Passed: {passed}")
-            print(f"❌ Failed: {failed}")
-            print('='*60)
+            print(f"Passed: {passed}")
+            print(f"Failed: {failed}")
         else:
             print("Unknown command")
-            print("Usage:")
-            print("  python test_runner.py           - Run basic tests")
-            print("  python test_runner.py all       - Run all tests")
-            print("  python test_runner.py file <f>  - Test specific file")
-            print("  python test_runner.py files     - Test all .tiny files")
-    else:
         # Default: run basic tests
         tester = run_basic_tests()
         tester.print_summary()

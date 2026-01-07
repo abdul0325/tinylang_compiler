@@ -21,7 +21,7 @@ def test_file(filename):
     try:
         ast = parser.parse(source_code)
     except Exception as e:
-        print(f"❌ Parse Error: {e}")
+        print(f"Parse Error: {e}")
         return False
     
     # Compile and run

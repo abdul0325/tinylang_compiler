@@ -1,17 +1,9 @@
-"""
-TinyLang Compiler - Part 1: Lexer + Parser + AST
-A complete compiler for a small procedural language with bytecode VM execution
-"""
-
 from lark import Lark, Transformer, Token, Tree, v_args
 from dataclasses import dataclass, field
 from typing import Any, List, Dict, Optional
 from enum import Enum
 
-# ============================================================================
 # AST Node Definitions
-# ============================================================================
-
 @dataclass
 class ASTNode:
     """Base class for all AST nodes"""
@@ -67,9 +59,7 @@ class Literal(ASTNode):
 class Variable(ASTNode):
     name: str
 
-# ============================================================================
 # Grammar Definition
-# ============================================================================
 
 TINYLANG_GRAMMAR = r"""
     ?start: program
@@ -138,9 +128,7 @@ TINYLANG_GRAMMAR = r"""
     %ignore COMMENT
 """
 
-# ============================================================================
 # AST Builder (Transformer)
-# ============================================================================
 
 class ASTBuilder(Transformer):
     """Transforms parse tree into AST"""
@@ -230,10 +218,7 @@ class ASTBuilder(Transformer):
     def variable(self, items):
         return Variable(name=str(items[0]))
 
-# ============================================================================
 # Compiler Frontend
-# ============================================================================
-
 class TinyLangCompiler:
     """Main compiler class"""
     
@@ -318,9 +303,7 @@ class TinyLangCompiler:
         
         return f"{prefix}{node}\n"
 
-# ============================================================================
 # Demo & Testing
-# ============================================================================
 
 def main():
     # Example TinyLang programs

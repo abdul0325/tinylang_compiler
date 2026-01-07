@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
 import sys
 import os
 
-# Fix imports when running from different directories
 sys.path.insert(0, os.path.dirname(__file__))
 
 from lexer_parser import TinyLangCompiler
